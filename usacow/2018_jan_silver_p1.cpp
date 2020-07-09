@@ -23,8 +23,8 @@ using namespace std;
 
 int main()
 {
-    //freopen("lifeguards.in", "r", stdin);
-    //freopen("lifeguards.out", "w", stdout);
+    freopen("lifeguards.in", "r", stdin);
+    freopen("lifeguards.out", "w", stdout);
 	
 	
 	
