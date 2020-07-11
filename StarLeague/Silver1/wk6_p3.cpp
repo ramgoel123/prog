@@ -27,35 +27,23 @@ int main()
     //freopen("lemonade.in", "r", stdin);
     //freopen("lemonade.out", "w", stdout);
 	
-	int n,k;
-	cin>>n>>k;
+	int n,q;
+	cin>>n>>q;
+	vector<int> v;
 	
-	vector<int> a,b;
-	int in1, in2;
+	int in;
 	for(int i=0; i<n; i++){
-		cin>>in1>>in2;
-		a.push_back(in1);
-		b.push_back(in2);
+		cin>>in;
+		v.push_back(in);
 	}
-	
-	vector<pair<int,int>> v1;
-	pair<int,int> p1;
-	for(int i=0; i<n; i++){
-		p1.first=a[i];
-		p1.second=i;
-		v1.push_back(p1);
+	sort(v.begin(), v.end());
+	int left, right, x1, x2;
+	for(int i=0; i<q; i++){
+		cin>>left>>right;
+		x1=lower_bound(v.begin(), v.end(), left)-v.begin();
+		x2=upper_bound(v.begin(), v.end(), right)-v.begin();
+		cout<<x2-x1<<endl;
 	}
-	int maxval=0,maxi=0;
-	sort(v1.begin(),v1.end());
-	//cout<<"HELLO "<<v1[0].first<<v1[0].second<<endl;
-	for(int i=n-1; i>=n-k; i--){
-		int val=b[v1[i].second];
-		if(val >= maxval){
-			maxval=val;
-			maxi=v1[i].second;
-		}
-	}
-	cout<<maxi+1;
 	
 	
 	
